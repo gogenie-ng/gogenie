@@ -4,10 +4,6 @@ interface Env {
 	BETTER_AUTH_SECRET: string;
 	CLOUDFLARE_D1_ACCOUNT_ID: string;
 	CLOUDFLARE_D1_API_TOKEN: string;
-	AWS_KEY_ID: string;
-	AWS_REGION: string;
-	AWS_S3_BUCKET_NAME: string;
-	AWS_SECRET_ACCESS_KEY: string;
 	EMAIL_FROM: string;
 	GOOGLE_CLIENT_ID: string;
 	GOOGLE_CLIENT_SECRET: string;
