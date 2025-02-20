@@ -1,9 +1,9 @@
+import { trpcServer } from "@hono/trpc-server";
 import { Hono } from "hono";
+import { createContext } from "trpc/context";
+import { appRouter } from "trpc/router";
 import { auth } from "~/utils/auth.server";
 import { createCloudflareContext, setupRemixHandler } from "~/utils/handlers";
-import { trpcServer } from "@hono/trpc-server";
-import { appRouter } from "trpc/router";
-import { createContext } from "trpc/context";
 
 const app = new Hono<{ Bindings: Env }>();
 

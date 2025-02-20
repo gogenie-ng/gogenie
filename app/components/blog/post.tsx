@@ -1,7 +1,7 @@
 import { PortableText } from "@portabletext/react";
-import imageUrlBuilder from "@sanity/image-url";
 import type { SanityDocument } from "@sanity/client";
-import { projectId, dataset } from "~/sanity/project-details";
+import imageUrlBuilder from "@sanity/image-url";
+import { dataset, projectId } from "~/sanity/project-details";
 
 const builder = imageUrlBuilder({ projectId, dataset });
 
