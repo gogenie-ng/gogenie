@@ -15,6 +15,7 @@ import {
 } from "remix-themes";
 import { themeSessionResolver } from "./sessions.server";
 import { Toaster } from "./components/ui/sonner";
+import { Suspense, lazy } from "react";
 
 import "./tailwind.css";
 
@@ -31,10 +32,21 @@ export const links: LinksFunction = () => [
 	},
 ];
 
-export async function loader({ request }: LoaderFunctionArgs) {
+const LiveVisualEditing = lazy(
+	() => import("./components/live-visual-editing"),
+);
+
+export async function loader({ request, context }: LoaderFunctionArgs) {
 	const { getTheme } = await themeSessionResolver(request);
+	const { env } = context.cloudflare;
 	return {
 		theme: getTheme(),
+		ENV: {
+			SANITY_STUDIO_PROJECT_ID: env.SANITY_STUDIO_PROJECT_ID,
+			SANITY_STUDIO_DATASET: env.SANITY_STUDIO_DATASET,
+			SANITY_STUDIO_URL: env.SANITY_STUDIO_URL,
+			SANITY_STUDIO_STEGA_ENABLED: env.SANITY_STUDIO_STEGA_ENABLED,
+		},
 	};
 }
 
@@ -60,11 +72,22 @@ function Document({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-	const data = useLoaderData<typeof loader>();
+	const { theme, ENV } = useLoaderData<typeof loader>();
 	return (
-		<ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
+		<ThemeProvider specifiedTheme={theme} themeAction="/action/set-theme">
 			<Document>
 				<Outlet />
+				<script
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+					dangerouslySetInnerHTML={{
+						__html: `window.ENV = ${JSON.stringify(ENV)}`,
+					}}
+				/>
+				{ENV.SANITY_STUDIO_STEGA_ENABLED ? (
+					<Suspense>
+						<LiveVisualEditing />
+					</Suspense>
+				) : null}
 				<Toaster />
 			</Document>
 		</ThemeProvider>

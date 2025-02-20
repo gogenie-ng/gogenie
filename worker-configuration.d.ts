@@ -10,5 +10,9 @@ interface Env {
 	SMTP_KEY: string;
 	SMTP_SERVER_HOST: string;
 	SMTP_SERVER_USER: string;
+	SANITY_STUDIO_PROJECT_ID: string;
+	SANITY_STUDIO_DATASET: string;
+	SANITY_STUDIO_URL: string;
+	SANITY_STUDIO_STEGA_ENABLED: string;
 	DATABASE: D1Database;
 }
