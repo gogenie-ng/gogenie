@@ -26,6 +26,7 @@
 		"@sanity/image-url": "^1.1.0",
 		"@sanity/overlays": "^2.3.59",
 		"@sanity/react-loader": "^1.10.45",
+		"@tailwindcss/typography": "^0.5.16",
 		"@trpc/client": "^11.0.0-rc.755",
 		"@trpc/server": "^11.0.0-rc.755",
 		"better-auth": "^1.1.15",

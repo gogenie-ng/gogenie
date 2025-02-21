@@ -12,11 +12,13 @@ export const loader = async ({ params, context }: LoaderFunctionArgs) => {
 	const data = await client.fetch<SanityDocument>(POST_QUERY, {
 		slug: params.slug,
 	});
+	if (!data) {
+		throw new Response("Not Found", { status: 404 });
+	}
 	return { data };
 };
 
-export default function Index() {
+export default function Page() {
 	const { data } = useLoaderData<typeof loader>();
-	console.log("Sanity document: ", data);
 	return <Post post={data} />;
 }
