@@ -18,6 +18,8 @@ import { Toaster } from "./components/ui/sonner";
 import { themeSessionResolver } from "./sessions.server";
 
 import "./tailwind.css";
+import LiveVisualEditing from "./components/live-visual-editing";
+import { SanityProvider } from "./sanity/provider";
 
 export const links: LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -31,10 +33,6 @@ export const links: LinksFunction = () => [
 		href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
 	},
 ];
-
-const LiveVisualEditing = lazy(
-	() => import("./components/live-visual-editing"),
-);
 
 export async function loader({ request, context }: LoaderFunctionArgs) {
 	const { getTheme } = await themeSessionResolver(request);
@@ -76,19 +74,21 @@ export default function App() {
 	return (
 		<ThemeProvider specifiedTheme={theme} themeAction="/action/set-theme">
 			<Document>
-				<Outlet />
-				<script
-					// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-					dangerouslySetInnerHTML={{
-						__html: `window.ENV = ${JSON.stringify(ENV)}`,
-					}}
-				/>
-				{ENV.SANITY_STUDIO_STEGA_ENABLED ? (
-					<Suspense>
-						<LiveVisualEditing />
-					</Suspense>
-				) : null}
-				<Toaster />
+				<SanityProvider>
+					<Outlet />
+					<script
+						// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
+						dangerouslySetInnerHTML={{
+							__html: `window.ENV = ${JSON.stringify(ENV)}`,
+						}}
+					/>
+					{ENV.SANITY_STUDIO_STEGA_ENABLED ? (
+						<Suspense>
+							<LiveVisualEditing />
+						</Suspense>
+					) : null}
+					<Toaster />
+				</SanityProvider>
 			</Document>
 		</ThemeProvider>
 	);

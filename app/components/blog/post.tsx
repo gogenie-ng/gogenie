@@ -1,11 +1,14 @@
 import { PortableText } from "@portabletext/react";
 import type { SanityDocument } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
-import { dataset, projectId } from "~/sanity/project-details";
-
-const builder = imageUrlBuilder({ projectId, dataset });
 
 export default function Post({ post }: { post: SanityDocument }) {
+	const projectId =
+		typeof window !== "undefined" ? window.ENV.SANITY_STUDIO_PROJECT_ID : "";
+	const dataset =
+		typeof window !== "undefined" ? window.ENV.SANITY_STUDIO_DATASET : "";
+	const builder = imageUrlBuilder({ projectId, dataset });
+
 	const { title, mainImage, body } = post;
 
 	return (
