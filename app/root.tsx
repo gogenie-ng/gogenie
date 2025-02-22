@@ -8,7 +8,7 @@ import {
 	useLoaderData,
 } from "@remix-run/react";
 import clsx from "clsx";
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 import {
 	PreventFlashOnWrongTheme,
 	ThemeProvider,
@@ -30,7 +30,7 @@ export const links: LinksFunction = () => [
 	},
 	{
 		rel: "stylesheet",
-		href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+		href: "https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300..900;1,300..900&display=swap",
 	},
 ];
 
@@ -82,11 +82,9 @@ export default function App() {
 							__html: `window.ENV = ${JSON.stringify(ENV)}`,
 						}}
 					/>
-					{ENV.SANITY_STUDIO_STEGA_ENABLED ? (
-						<Suspense>
-							<LiveVisualEditing />
-						</Suspense>
-					) : null}
+					<Suspense>
+						<LiveVisualEditing />
+					</Suspense>
 					<Toaster />
 				</SanityProvider>
 			</Document>
