@@ -8,7 +8,6 @@ import {
 	useLoaderData,
 } from "@remix-run/react";
 import clsx from "clsx";
-import { Suspense } from "react";
 import {
 	PreventFlashOnWrongTheme,
 	ThemeProvider,
@@ -18,8 +17,6 @@ import { Toaster } from "./components/ui/sonner";
 import { themeSessionResolver } from "./sessions.server";
 
 import "./tailwind.css";
-import LiveVisualEditing from "./components/live-visual-editing";
-import { SanityProvider } from "./sanity/provider";
 
 export const links: LinksFunction = () => [
 	{ rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -34,17 +31,10 @@ export const links: LinksFunction = () => [
 	},
 ];
 
-export async function loader({ request, context }: LoaderFunctionArgs) {
+export async function loader({ request }: LoaderFunctionArgs) {
 	const { getTheme } = await themeSessionResolver(request);
-	const { env } = context.cloudflare;
 	return {
 		theme: getTheme(),
-		ENV: {
-			SANITY_STUDIO_PROJECT_ID: env.SANITY_STUDIO_PROJECT_ID,
-			SANITY_STUDIO_DATASET: env.SANITY_STUDIO_DATASET,
-			SANITY_STUDIO_URL: env.SANITY_STUDIO_URL,
-			SANITY_STUDIO_STEGA_ENABLED: env.SANITY_STUDIO_STEGA_ENABLED,
-		},
 	};
 }
 
@@ -70,23 +60,12 @@ function Document({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-	const { theme, ENV } = useLoaderData<typeof loader>();
+	const { theme } = useLoaderData<typeof loader>();
 	return (
 		<ThemeProvider specifiedTheme={theme} themeAction="/action/set-theme">
 			<Document>
-				<SanityProvider>
-					<Outlet />
-					<script
-						// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
-						dangerouslySetInnerHTML={{
-							__html: `window.ENV = ${JSON.stringify(ENV)}`,
-						}}
-					/>
-					<Suspense>
-						<LiveVisualEditing />
-					</Suspense>
-					<Toaster />
-				</SanityProvider>
+				<Outlet />
+				<Toaster />
 			</Document>
 		</ThemeProvider>
 	);
