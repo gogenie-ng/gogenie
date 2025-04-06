@@ -21,12 +21,6 @@ export const menu = [
 				url: "/blog",
 			},
 			{
-				title: "Company",
-				description: "Our mission is to innovate and empower the world",
-				icon: Trees,
-				url: "#",
-			},
-			{
 				title: "Careers",
 				description: "Browse job listing and discover our workspace",
 				icon: Sunset,
@@ -58,21 +52,12 @@ export const menu = [
 				url: "#",
 			},
 			{
-				title: "Status",
-				description: "Check the current status of our services and APIs",
-				icon: Trees,
-			},
-			{
 				title: "Terms of Service",
 				description: "Our terms and conditions for using our services",
 				icon: Book,
 				url: "#",
 			},
 		],
-	},
-	{
-		title: "Pricing",
-		url: "#",
 	},
 	{
 		title: "Blog",
