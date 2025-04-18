@@ -1,5 +1,6 @@
-import { Label } from "@radix-ui/react-label";
+import { Label } from "~/components/ui/label";
 import { Form, Link, useNavigate } from "@remix-run/react";
+import house from "assets/images/house.jpg";
 import { Loader } from "lucide-react";
 import { useState, useTransition } from "react";
 import { toast } from "sonner";
@@ -8,15 +9,16 @@ import { Logo } from "~/components/logo";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { signUp } from "~/utils/auth.client";
-import house from "assets/images/house.jpg";
+import { useSearchParams } from "@remix-run/react";
 
 export default function SignUp() {
 	const [pending, startTransition] = useTransition();
 	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const navigate = useNavigate();
-
+	const [searchParams] = useSearchParams();
+	const emailString = searchParams.get("email");
+	const [email, setEmail] = useState(emailString || "");
 	const submit = () => {
 		startTransition(() => {
 			async () => {

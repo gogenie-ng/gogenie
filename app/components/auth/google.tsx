@@ -1,4 +1,4 @@
-import Google from "assets/icons/google";
+import { Google } from "assets/icons";
 import { Loader } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";

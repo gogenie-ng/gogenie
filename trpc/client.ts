@@ -4,7 +4,10 @@ import type { AppRouter } from "./router";
 export const client = createTRPCClient<AppRouter>({
 	links: [
 		httpBatchLink({
-			url: "http://localhost:8787/trpc",
+			url:
+				process.env.NODE_ENV === "production"
+					? "https://gogenie.co/trpc"
+					: "http://localhost:8787/trpc",
 		}),
 	],
 });
