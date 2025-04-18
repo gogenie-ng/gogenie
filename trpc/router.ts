@@ -1,7 +1,7 @@
 import { initTRPC } from "@trpc/server";
 import { sql } from "drizzle-orm";
-import { drizzle } from "drizzle-orm/d1";
 import { z } from "zod";
+import { db } from "~/db";
 import { user } from "~/db/schema";
 import { auth } from "~/utils/auth.server";
 import type { Context } from "./context";
@@ -19,8 +19,7 @@ export const appRouter = t.router({
 			if (!authz?.user) {
 				throw Error("Unauthorized");
 			}
-			const db = drizzle(ctx.env.DATABASE);
-			const result = await db
+			const result = await db(ctx.env)
 				.select({ count: sql<number>`count(*)`.mapWith(Number) })
 				.from(user);
 			return result[0].count;

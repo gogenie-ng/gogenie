@@ -1,9 +1,9 @@
-import { useLoaderData, Outlet } from "@remix-run/react";
 import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { SanityProvider } from "~/sanity/provider";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import { Suspense } from "react";
 import LiveVisualEditing from "~/components/live-visual-editing";
 import { Navbar } from "~/components/marketing/nav-bar";
+import { SanityProvider } from "~/sanity/provider";
 
 export async function loader({ context }: LoaderFunctionArgs) {
 	const { env } = context.cloudflare;

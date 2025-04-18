@@ -4,8 +4,8 @@ import type { SanityDocument } from "@sanity/client";
 
 import Post from "~/components/blog/post";
 import { useQuery } from "~/sanity/loader";
-import { POST_QUERY } from "~/sanity/queries";
 import { getLoadQuery } from "~/sanity/loader.server";
+import { POST_QUERY } from "~/sanity/queries";
 
 export const loader = async ({ params, context }: LoaderFunctionArgs) => {
 	const loadQuery = getLoadQuery(context.cloudflare.env);
