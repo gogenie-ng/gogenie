@@ -1,10 +1,10 @@
 "use client";
 
-import * as React from "react";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import { X } from "lucide-react";
-import { cn } from "~/lib/utils";
+import * as React from "react";
 import { Button } from "~/components/ui/button";
+import { cn } from "~/lib/utils";
 
 const TRANSITION = {
 	type: "spring",

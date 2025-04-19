@@ -1,29 +1,22 @@
-import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { useLoaderData } from "@remix-run/react";
 import type { SanityDocument } from "@sanity/client";
-
 import Posts from "~/components/blog/posts";
-import { useQuery } from "~/sanity/loader";
-import { getLoadQuery } from "~/sanity/loader.server";
+import { getClient } from "~/sanity/client";
+import { previewContext } from "~/sanity/preview";
 import { POSTS_QUERY } from "~/sanity/queries";
+import type { Route } from "./+types/_mkt.blog._index";
 
-export const loader = async ({ context }: LoaderFunctionArgs) => {
-	const loadQuery = getLoadQuery(context.cloudflare.env);
-	const initial = await loadQuery<SanityDocument[]>(POSTS_QUERY);
+export const loader = async ({ request }: Route.LoaderArgs) => {
+	const { options } = await previewContext(request.headers);
+	const initial = await getClient().fetch<SanityDocument[]>(
+		POSTS_QUERY,
+		{},
+		options,
+	);
 	return { initial, query: POSTS_QUERY, params: {} };
 };
 
-export default function Index() {
-	const { initial, query, params } = useLoaderData<typeof loader>();
-	const { data, loading } = useQuery<typeof initial.data>(query, params, {
-		initial,
-	});
+export default function Index({ loaderData }: Route.ComponentProps) {
+	const { initial } = loaderData;
 
-	// `data` should contain the initial data from the loader
-	// `loading` will only be true when Visual Editing is enabled
-	if (loading && !data) {
-		return <div>Loading...</div>;
-	}
-
-	return data ? <Posts posts={data} /> : null;
+	return initial ? <Posts posts={initial} /> : null;
 }

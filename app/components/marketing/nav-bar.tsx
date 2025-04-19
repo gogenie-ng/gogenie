@@ -1,6 +1,6 @@
-import { Link } from "@remix-run/react";
 import { type LucideIcon, Menu } from "lucide-react";
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router";
 import {
 	Accordion,
 	AccordionContent,

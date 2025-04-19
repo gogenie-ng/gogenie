@@ -1,37 +1,36 @@
-import type { LoaderFunctionArgs } from "@remix-run/cloudflare";
-import { Outlet, useLoaderData } from "@remix-run/react";
-import { Suspense } from "react";
-import LiveVisualEditing from "~/components/live-visual-editing";
+import { Outlet } from "react-router";
+import { SanityVisualEditing } from "~/components/blog/live-visual-editing";
+import { Footer } from "~/components/marketing/footer";
 import { Navbar } from "~/components/marketing/nav-bar";
-import { SanityProvider } from "~/sanity/provider";
+import { previewContext } from "~/sanity/preview";
+import type { Route } from "./+types/_mkt";
 
-export async function loader({ context }: LoaderFunctionArgs) {
+export async function loader({ request, context }: Route.LoaderArgs) {
 	const { env } = context.cloudflare;
-	return {
-		ENV: {
-			SANITY_STUDIO_PROJECT_ID: env.SANITY_STUDIO_PROJECT_ID,
-			SANITY_STUDIO_DATASET: env.SANITY_STUDIO_DATASET,
-			SANITY_STUDIO_URL: env.SANITY_STUDIO_URL,
-			SANITY_STUDIO_STEGA_ENABLED: env.SANITY_STUDIO_STEGA_ENABLED,
-		},
+	const { preview } = await previewContext(request.headers);
+	const ENV = {
+		PUBLIC_SANITY_PROJECT_ID: env.PUBLIC_SANITY_PROJECT_ID,
+		PUBLIC_SANITY_DATASET: env.PUBLIC_SANITY_DATASET,
+		PUBLIC_SANITY_STUDIO_URL: env.PUBLIC_SANITY_STUDIO_URL,
 	};
+
+	return { preview, ENV };
 }
 
-export default function MarketingLayout() {
-	const { ENV } = useLoaderData<typeof loader>();
+export default function MarketingLayout({ loaderData }: Route.ComponentProps) {
+	const { ENV, preview } = loaderData;
 	return (
-		<SanityProvider>
+		<>
 			<Navbar />
 			<Outlet />
+			{preview && <SanityVisualEditing />}
 			<script
 				// biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
 				dangerouslySetInnerHTML={{
 					__html: `window.ENV = ${JSON.stringify(ENV)}`,
 				}}
 			/>
-			<Suspense>
-				<LiveVisualEditing />
-			</Suspense>
-		</SanityProvider>
+			<Footer />
+		</>
 	);
 }

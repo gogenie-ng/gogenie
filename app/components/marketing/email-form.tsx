@@ -1,12 +1,10 @@
-import { Form } from "@remix-run/react";
+import { ArrowUpRight, Loader2 } from "lucide-react";
+import { useState } from "react";
+import { Form, useNavigate } from "react-router";
+import { toast } from "sonner";
+import { cn } from "~/lib/utils";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
-import { ArrowUpRight, Loader2 } from "lucide-react";
-import { cn } from "~/lib/utils";
-import { useState } from "react";
-import { toast } from "sonner";
-import { useNavigate } from "@remix-run/react";
-
 export function EmailForm({
 	className,
 	showText = true,

@@ -1,8 +1,8 @@
-import { createCookieSessionStorage } from "@remix-run/cloudflare";
+import { createCookieSessionStorage } from "react-router";
 import { createThemeSessionResolver } from "remix-themes";
 
 // You can default to 'development' if process.env.NODE_ENV is not set
-const isProduction = process.env.NODE_ENV === "production";
+const isProduction = import.meta.env.NODE_ENV === "production";
 
 const sessionStorage = createCookieSessionStorage({
 	cookie: {
@@ -14,7 +14,7 @@ const sessionStorage = createCookieSessionStorage({
 		// Set domain and secure only if in production
 		...(isProduction
 			? //TODO: set production url
-				{ domain: "your-production-domain.com", secure: true }
+				{ domain: "gogenie.co", secure: true }
 			: {}),
 	},
 });
