@@ -1,30 +1,40 @@
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/cloudflare";
 import {
 	Links,
 	Meta,
 	Outlet,
 	Scripts,
 	ScrollRestoration,
+	isRouteErrorResponse,
 	useLoaderData,
-} from "@remix-run/react";
+} from "react-router";
+import type { Route } from "./+types/root";
+import { Toaster } from "./components/ui/sonner";
+import "./app.css";
 import clsx from "clsx";
 import {
 	PreventFlashOnWrongTheme,
 	ThemeProvider,
 	useTheme,
 } from "remix-themes";
-import { Toaster } from "./components/ui/sonner";
 import { themeSessionResolver } from "./sessions.server";
-import "./tailwind.css";
 
-export async function loader({ request }: LoaderFunctionArgs) {
+export async function loader({ request }: Route.LoaderArgs) {
 	const { getTheme } = await themeSessionResolver(request);
 	return {
 		theme: getTheme(),
 	};
 }
 
-function Document({ children }: { children: React.ReactNode }) {
+export default function AppWithProviders({ loaderData }: Route.ComponentProps) {
+	const { theme } = loaderData;
+	return (
+		<ThemeProvider specifiedTheme={theme} themeAction="/api/set-theme">
+			<App />
+		</ThemeProvider>
+	);
+}
+
+export function App() {
 	const data = useLoaderData<typeof loader>();
 	const [theme] = useTheme();
 	return (
@@ -37,22 +47,39 @@ function Document({ children }: { children: React.ReactNode }) {
 				<Links />
 			</head>
 			<body>
-				{children}
+				<Outlet />
+				<Toaster richColors />
 				<ScrollRestoration />
 				<Scripts />
 			</body>
 		</html>
 	);
 }
+export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
+	let message = "Oops!";
+	let details = "An unexpected error occurred.";
+	let stack: string | undefined;
 
-export default function App() {
-	const { theme } = useLoaderData<typeof loader>();
+	if (isRouteErrorResponse(error)) {
+		message = error.status === 404 ? "404" : "Error";
+		details =
+			error.status === 404
+				? "The requested page could not be found."
+				: error.statusText || details;
+	} else if (import.meta.env.DEV && error && error instanceof Error) {
+		details = error.message;
+		stack = error.stack;
+	}
+
 	return (
-		<ThemeProvider specifiedTheme={theme} themeAction="/action/set-theme">
-			<Document>
-				<Outlet />
-				<Toaster />
-			</Document>
-		</ThemeProvider>
+		<main className="pt-16 p-4 container mx-auto">
+			<h1>{message}</h1>
+			<p>{details}</p>
+			{stack && (
+				<pre className="w-full p-4 overflow-x-auto">
+					<code>{stack}</code>
+				</pre>
+			)}
+		</main>
 	);
 }

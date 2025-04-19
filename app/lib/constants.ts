@@ -1,4 +1,3 @@
-import { string } from "better-auth";
 import {
 	Book,
 	Handshake,

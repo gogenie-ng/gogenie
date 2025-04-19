@@ -1,17 +1,32 @@
+import { env } from "cloudflare:workers";
 import { createClient } from "@sanity/client";
-import { getSanityConfig } from "./project-details";
 
-export const createSanityClient = (env: Env) => {
-	const { projectId, dataset, stegaEnabled, studioUrl } = getSanityConfig(env);
+declare global {
+	interface Window {
+		ENV: {
+			PUBLIC_SANITY_PROJECT_ID: string;
+			PUBLIC_SANITY_DATASET: string;
+			PUBLIC_SANITY_STUDIO_URL: string;
+		};
+	}
+}
 
-	return createClient({
-		projectId,
-		dataset,
+let _client: ReturnType<typeof createClient> | null = null;
+
+export function getClient() {
+	if (_client) return _client;
+
+	const sanityEnv = typeof document === "undefined" ? env : window.ENV;
+
+	_client = createClient({
+		projectId: sanityEnv.PUBLIC_SANITY_PROJECT_ID,
+		dataset: sanityEnv.PUBLIC_SANITY_DATASET,
+		apiVersion: "2024-12-01",
 		useCdn: true,
-		apiVersion: "2024-02-28",
 		stega: {
-			enabled: stegaEnabled,
-			studioUrl,
+			studioUrl: sanityEnv.PUBLIC_SANITY_STUDIO_URL,
 		},
 	});
-};
+
+	return _client;
+}

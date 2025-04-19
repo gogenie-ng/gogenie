@@ -1,5 +1,5 @@
-import { Link } from "@remix-run/react";
 import type { SanityDocument } from "@sanity/client";
+import { Link } from "react-router";
 
 export default function Posts({ posts }: { posts: SanityDocument[] }) {
 	return (

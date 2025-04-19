@@ -1,8 +1,8 @@
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { Link } from "react-router";
+import { footerLinks } from "~/lib/constants";
 import { Logo } from "../logo";
 import { EmailForm } from "./email-form";
-import { footerLinks } from "~/lib/constants";
-import { Link } from "@remix-run/react";
 
 export function Footer() {
 	return (

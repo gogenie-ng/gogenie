@@ -1,10 +1,13 @@
-node_modules
+.DS_Store
+/node_modules/
+*.tsbuildinfo
 
-/.wrangler
-/build
-.env
-.dev.vars
+# React Router
+/.react-router/
+/build/
 
+# Cloudflare
+.mf
 .wrangler
-package-lock.json
+.dev.vars*
 secrets.json
