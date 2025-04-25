@@ -40,7 +40,7 @@ export const Navbar = () => {
 						</NavigationMenuList>
 					</NavigationMenu>
 					<Link
-						to="/app"
+						to="https://app.gogenie.co"
 						className={cn(
 							buttonVariants(),
 							"group transition-all duration-200 hover:scale-105",
@@ -95,7 +95,7 @@ export const Navbar = () => {
 									</div>
 								</div>
 								<Link
-									to="/signup"
+									to="https://app.gogenie.co"
 									className={cn(
 										buttonVariants({ size: "lg" }),
 										"group transition-all duration-200 hover:scale-105",

@@ -150,7 +150,7 @@ export default function Index() {
 						<Button
 							className="p-2 mt-10"
 							size={"lg"}
-							onClick={() => navigate("/signup")}
+							onClick={() => navigate("https://app.gogenie.co")}
 						>
 							Earn some extra income <ArrowUpRight className="ml-2" />
 						</Button>

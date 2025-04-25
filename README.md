@@ -1,79 +1,21 @@
-# Welcome to React Router!
+# GoGenie Marketing Repository
 
-A modern, production-ready template for building full-stack React applications using React Router.
+Welcome to the GoGenie marketing repository! This repository contains resources and code for our blog, marketing initiatives, and SEO optimization efforts.
 
-## Features
+## About GoGenie
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+GoGenie is a leading technology solutions provider focused on delivering innovative digital experiences. Visit our website at https://gogenie.co to learn more about our services and solutions.
+
+## Repository Contents
+
+- Blog content and assets
+- Marketing campaign materials  
+- SEO optimization tools and documentation
 
 ## Getting Started
 
-### Installation
+See our documentation for information on contributing to this repository.
 
-Install the dependencies:
+## Contact
 
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Previewing the Production Build
-
-Preview the production build locally:
-
-```bash
-npm run preview
-```
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-Deployment is done using the Wrangler CLI.
-
-To build and deploy directly to production:
-
-```sh
-npm run deploy
-```
-
-To deploy a preview URL:
-
-```sh
-npx wrangler versions upload
-```
-
-You can then promote a version to production after verification or roll it out progressively.
-
-```sh
-npx wrangler versions deploy
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+For questions or support, please visit https://gogenie.co
