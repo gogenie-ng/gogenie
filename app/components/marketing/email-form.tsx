@@ -16,7 +16,7 @@ export function EmailForm({
 		event.preventDefault();
 		setLoading(true);
 		try {
-			navigate(`https://app.gogenie.co?email=${email}`);
+			navigate(`https://app.gogenie.co/signup?email=${email}`);
 		} catch (error) {
 			toast.error("Error signing up, please try again later");
 		} finally {

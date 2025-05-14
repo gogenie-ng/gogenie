@@ -14,7 +14,7 @@ const sessionStorage = createCookieSessionStorage({
 		// Set domain and secure only if in production
 		...(isProduction
 			? //TODO: set production url
-				{ domain: "gogenie.co", secure: true }
+				{ domain: "https://gogenie.co", secure: true }
 			: {}),
 	},
 });

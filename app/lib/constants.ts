@@ -158,18 +158,18 @@ export const options = [
 export const features: Feature[] = [
 	{
 		Icon: Sprout,
-		title: "Outsource with Gogenie",
-		text: "At Gogenie, we are passionate about connecting job seekers with meaningful opportunities. Whether you are experienced or just starting out, we help you stand out.",
+		title: "Outsource with GoGenie",
+		text: "At GoGenie, we are passionate about connecting job seekers with meaningful opportunities. Whether you are experienced or just starting out, we help you stand out.",
 	},
 	{
 		Icon: Handshake,
-		title: "Partner with Gogenie",
-		text: "Are you a freelancer, vendor or service provider looking to expand your customer base? Partner with Gogenie to connect with thousands of customers who need your services.",
+		title: "Partner with GoGenie",
+		text: "Are you a freelancer, vendor or service provider looking to expand your customer base? Partner with GoGenie to connect with thousands of customers who need your services.",
 	},
 	{
 		Icon: PiggyBank,
-		title: "Earn with Gogenie",
-		text: "Become a Gogenie Affiliate and start earning today. By referring others to the Gogenie platform for their tasks, you earn commissions.",
+		title: "Earn with GoGenie",
+		text: "Become a GoGenie Affiliate and start earning today. By referring others to the GoGenie platform for their tasks, you earn commissions.",
 	},
 ];
 

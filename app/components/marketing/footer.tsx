@@ -35,7 +35,7 @@ export function Footer() {
 			</div>
 			<div className="max-w-screen-xl mx-auto px-6 py-4 border-t border-secondary flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
 				<span className="text-secondary">
-					&copy; {new Date().getFullYear()} Gogenie. All Rights Reserved
+					&copy; {new Date().getFullYear()} GoGenie. All Rights Reserved
 				</span>
 				<div className="flex items-center gap-4">
 					<a

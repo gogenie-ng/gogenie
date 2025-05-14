@@ -74,7 +74,7 @@ export default function Index() {
 				</div>
 			</section>
 			<ReviewComment
-				text="Gogenie has been a lifesaver! I no longer have to stress about groceries or finding reliable help for everyday errands. Booking is seamless, and I can finally focus on work without distractions!"
+				text="GoGenie has been a lifesaver! I no longer have to stress about groceries or finding reliable help for everyday errands. Booking is seamless, and I can finally focus on work without distractions!"
 				author="Ada O."
 				job="Busy Professional"
 			/>
@@ -103,7 +103,7 @@ export default function Index() {
 				</div>
 			</section>
 			<ReviewComment
-				text="I needed urgent logistics support for my business, and Gogenie delivered! The process was quick, and the service was top-notch. I highly recommend them for anyone looking for reliable help."
+				text="I needed urgent logistics support for my business, and GoGenie delivered! The process was quick, and the service was top-notch. I highly recommend them for anyone looking for reliable help."
 				author="Tunde A."
 				job="Small Business Owner"
 			/>
@@ -115,7 +115,7 @@ export default function Index() {
 				/>
 			</section>
 			<ReviewComment
-				text="As someone who travels often, Gogenie has been a game-changer. I can book logistics and errands from anywhere, and the service is always reliable. It's like having a personal assistant at my fingertips!"
+				text="As someone who travels often, GoGenie has been a game-changer. I can book logistics and errands from anywhere, and the service is always reliable. It's like having a personal assistant at my fingertips!"
 				author="Jide K."
 				job="Frequent Traveler"
 			/>
@@ -134,7 +134,7 @@ export default function Index() {
 				</div>
 			</section>
 			<ReviewComment
-				text="Managing a home and kids can be overwhelming. But with Gogenie, I get trusted help whenever I need it. From household tasks to last-minute errands, they've got me covered!"
+				text="Managing a home and kids can be overwhelming. But with GoGenie, I get trusted help whenever I need it. From household tasks to last-minute errands, they've got me covered!"
 				author="Chinenye M."
 				job="Full-time Mom"
 			/>
