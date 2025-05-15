@@ -11,7 +11,7 @@ export function Logo({ className }: { className?: string }) {
 			<div className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
 				<Flame className="size-4" />
 			</div>
-			Gogenie
+			GoGenie
 		</Link>
 	);
 }

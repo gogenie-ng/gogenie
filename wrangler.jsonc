@@ -10,14 +10,7 @@
 	"compatibility_flags": ["nodejs_compat"],
 	"observability": {
 		"enabled": true
-	},
-	"d1_databases": [
-		{
-			"binding": "DATABASE",
-			"database_name": "gogenie",
-			"database_id": "f9076d58-c559-4b26-9300-8606346a9006"
-		}
-	]
+	}
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

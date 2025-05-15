@@ -1,20 +1,13 @@
-import achievement from "assets/images/achievement.svg";
-import woman from "assets/images/girl-on-laptop.svg";
+import genie from "assets/images/genie.png";
 import bgImage from "assets/images/image.png";
-import {
-	Adobe,
-	Airbnb,
-	GoogleWordMark,
-	Paystack,
-	Piggyvest,
-} from "assets/logos";
-import { ArrowUpRight } from "lucide-react";
-import { useNavigate } from "react-router";
-import { EmailForm } from "~/components/marketing/email-form";
+import people from "assets/images/people.jpg";
+import { UserCheck, UserPlus2, Users2 } from "lucide-react";
+import { Link, useNavigate } from "react-router";
 import { FaqAccordion } from "~/components/marketing/faq-accordion";
 import { FeatureCard, ReviewComment } from "~/components/marketing/utilities";
-import { Button } from "~/components/ui/button";
-import { features, options } from "~/lib/constants";
+import { buttonVariants } from "~/components/ui/button";
+import { Card, CardContent } from "~/components/ui/card";
+import { features, services } from "~/lib/constants";
 
 export default function Index() {
 	const navigate = useNavigate();
@@ -23,6 +16,11 @@ export default function Index() {
 			<section className="pt-12 md:pt-20">
 				<div className="container flex justify-center px-4 md:px-6">
 					<div className="flex flex-col items-center gap-20 lg:flex-row lg:items-start">
+						<img
+							src={genie}
+							alt="hero-image"
+							className="hidden lg:block size-100"
+						/>
 						<div className="max-w-[35rem]">
 							<h1 className="text-4xl md:text-6xl font-semibold text-foreground">
 								Book <span className="text-secondary">Trusted Helps</span> for{" "}
@@ -31,50 +29,117 @@ export default function Index() {
 							<p className="mt-6 text-xl md:text-3xl text-muted-foreground">
 								Focus on what matters, we handle the rest.
 							</p>
-							<EmailForm />
-						</div>
-						<div className="bg-accent/25 dark:bg-accent-foreground -mt-15 hidden lg:block size-100 rounded-[40%_60%_70%_30%/40%_50%_60%_50%]">
-							<img src={woman} alt="hero-image" className="size-100" />
+							<div className="flex items-center gap-4 mt-4">
+								<Link
+									className={buttonVariants({ size: "lg" })}
+									to={"https://app.gogenie.co"}
+								>
+									Book a task
+								</Link>
+								<Link
+									className={buttonVariants({ variant: "outline", size: "lg" })}
+									to={"https://app.gogenie.co"}
+								>
+									Become a service provider
+								</Link>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-			<div className="container flex items-center justify-between gap-4 p-4 md:p-2">
-				<GoogleWordMark />
-				<Paystack />
-				<Piggyvest />
-				<Adobe />
-				<Airbnb />
+			<div className="container flex justify-center px-4 md:px-6 pt-4 md:pt-6">
+				<div className="flex flex-col items-center w-full">
+					<h2 className="text-4xl">
+						How <span className="text-primary">GoGenie</span> Works
+					</h2>
+					<div className="grid md:grid-cols-2 gap-2 p-4 w-full">
+						{[
+							"Contact GoGenie",
+							"Describe what you want done",
+							"Get an offer, accept and checkout",
+							"Task delivered",
+						].map((step, index) => (
+							<div key={step} className="flex items-center gap-2 md:p-4">
+								<span className="rounded-full bg-primary text-primary-foreground size-6 flex items-center justify-center">
+									{index + 1}
+								</span>{" "}
+								<p className="text-xl font-medium">{step}</p>
+							</div>
+						))}
+					</div>
+					<div className="flex items-center gap-4 md:place-self-start mt-4">
+						<Link
+							to={"https://app.gogenie.co"}
+							className={buttonVariants({ size: "lg" })}
+						>
+							Chat with GoGenie
+						</Link>
+						<Link
+							to={"https://app.gogenie.co"}
+							className={buttonVariants({ size: "lg", variant: "outline" })}
+						>
+							Book a demo call
+						</Link>
+					</div>
+				</div>
 			</div>
 			<section className="container flex justify-center px-4 md:px-6 pt-4 md:pt-6">
 				<div className="flex flex-col items-center gap-10 w-full">
-					<div className="flex flex-col items-center justify-center gap-4 text-center">
-						<h2 className="text-4xl">
-							Our <span className="text-primary">Services</span>
-						</h2>
-						<p className="max-w-sm">
-							Experience convenience redefined with services covering travel,
-							logistics, groceries, and more.
-						</p>
-					</div>{" "}
-					<div className="flex flex-wrap justify-center gap-4 md:gap-8 lg:justify-start">
-						{options.map((v) => (
-							<Button
-								aria-hidden
-								tabIndex={-1}
-								size={"lg"}
-								variant={"secondary"}
-								className="border min-w-[120px] flex-1 md:flex-none text-center"
-								key={v}
+					<h2 className="text-4xl">
+						Our <span className="text-primary">Services</span>
+					</h2>
+					<div className="hidden md:grid grid-cols-4 gap-4 w-full">
+						{services.map((s) => (
+							<Card
+								key={s.title}
+								className="relative flex flex-col aspect-square"
 							>
-								{v}
-							</Button>
+								<div className="relative flex-1">
+									<img
+										className="absolute inset-0 w-full h-full object-cover"
+										src={s.image}
+										alt={s.title}
+										loading="lazy"
+									/>
+								</div>
+								<p className="place-self-center-safe">{s.title}</p>
+							</Card>
 						))}
+					</div>
+					<div className="grid md:hidden grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
+						{services.slice(0, 8).map((s) => (
+							<Card
+								key={s.title}
+								className="relative flex flex-col aspect-square"
+							>
+								<div className="relative flex-1">
+									<img
+										className="absolute inset-0 w-full h-full object-cover"
+										src={s.image}
+										alt={s.title}
+										loading="lazy"
+									/>
+								</div>
+								<p className="place-self-center-safe">{s.title}</p>
+							</Card>
+						))}
+						{services.length > 8 && (
+							<Card className="relative flex flex-col items-center justify-center">
+								<CardContent className="p-6 text-center">
+									<p className="text-lg font-medium">
+										+{services.length - 8} more services
+									</p>
+									<p className="text-sm text-muted-foreground">
+										Click to view all
+									</p>
+								</CardContent>
+							</Card>
+						)}
 					</div>
 				</div>
 			</section>
 			<ReviewComment
-				text="Gogenie has been a lifesaver! I no longer have to stress about groceries or finding reliable help for everyday errands. Booking is seamless, and I can finally focus on work without distractions!"
+				text="GoGenie has been a lifesaver! I no longer have to stress about groceries or finding reliable help for everyday errands. Booking is seamless, and I can finally focus on work without distractions!"
 				author="Ada O."
 				job="Busy Professional"
 			/>
@@ -103,7 +168,7 @@ export default function Index() {
 				</div>
 			</section>
 			<ReviewComment
-				text="I needed urgent logistics support for my business, and Gogenie delivered! The process was quick, and the service was top-notch. I highly recommend them for anyone looking for reliable help."
+				text="I needed urgent logistics support for my business, and GoGenie delivered! The process was quick, and the service was top-notch. I highly recommend them for anyone looking for reliable help."
 				author="Tunde A."
 				job="Small Business Owner"
 			/>
@@ -115,7 +180,7 @@ export default function Index() {
 				/>
 			</section>
 			<ReviewComment
-				text="As someone who travels often, Gogenie has been a game-changer. I can book logistics and errands from anywhere, and the service is always reliable. It's like having a personal assistant at my fingertips!"
+				text="As someone who travels often, GoGenie has been a game-changer. I can book logistics and errands from anywhere, and the service is always reliable. It's like having a personal assistant at my fingertips!"
 				author="Jide K."
 				job="Frequent Traveler"
 			/>
@@ -134,30 +199,38 @@ export default function Index() {
 				</div>
 			</section>
 			<ReviewComment
-				text="Managing a home and kids can be overwhelming. But with Gogenie, I get trusted help whenever I need it. From household tasks to last-minute errands, they've got me covered!"
+				text="Managing a home and kids can be overwhelming. But with GoGenie, I get trusted help whenever I need it. From household tasks to last-minute errands, they've got me covered!"
 				author="Chinenye M."
 				job="Full-time Mom"
 			/>
 			<section className="container flex justify-center px-4 md:px-6 pt-4 md:pt-6">
 				<div className="flex flex-col items-center gap-20 lg:flex-row lg:items-start">
 					<div className="max-w-[25rem] mt-10">
-						<h1 className="text-2xl md:text-4xl font-medium text-foreground">
-							Improve your <span className="text-secondary">Earnings</span>
+						<h1 className="text-2xl md:text-4xl font-semibold text-foreground">
+							Ready to make life easier?
 						</h1>
 						<p className="mt-6 text-lg md:text-xl text-muted-foreground">
-							Focus on what matters, we handle the rest.
+							Join thousands of people already using GoGenie to get tasks done,
+							grow their services and connect smarter.
 						</p>
-						<Button
-							className="p-2 mt-10"
-							size={"lg"}
-							onClick={() => navigate("/signup")}
-						>
-							Earn some extra income <ArrowUpRight className="ml-2" />
-						</Button>
+						<div className="flex items-center gap-4 mt-10 p-2">
+							<Link to={"https://app.gogenie.co"} className={buttonVariants()}>
+								<Users2 /> Join GoGenie
+							</Link>
+							<Link
+								to={"https://app.gogenie.co"}
+								className={buttonVariants({ variant: "outline" })}
+							>
+								<UserCheck /> Become a service provider
+							</Link>
+						</div>
 					</div>
-					<div className="bg-accent/25 dark:bg-accent-foreground hidden lg:block size-80 rounded-[40%_60%_70%_30%/40%_50%_60%_50%]">
-						<img src={achievement} alt="hero-image" className="size-80" />
-					</div>
+					<img
+						src={people}
+						alt="hero-image"
+						className="h-80 rounded-xl aspect-video"
+						loading="lazy"
+					/>
 				</div>
 			</section>
 		</main>

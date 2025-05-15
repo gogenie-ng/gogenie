@@ -1,13 +1,4 @@
-import {
-	Book,
-	Handshake,
-	type LucideIcon,
-	PiggyBank,
-	Sprout,
-	Sunset,
-	Trees,
-	Zap,
-} from "lucide-react";
+import { Handshake, type LucideIcon, PiggyBank, Sprout } from "lucide-react";
 
 export interface MenuItem {
 	title: string;
@@ -23,239 +14,71 @@ export interface Feature {
 	text: string;
 }
 
-interface FooterLink {
-	title: string;
-	links: {
-		url: string;
-		link: string;
-	}[];
-}
-export const menu = [
-	{ title: "For Task Posters", url: "/faq/posters" },
-	{ title: "For Taskers", url: "/faq/taskers" },
+export const services = [
 	{
-		title: "Help & Support",
-		url: "#",
-		items: [
-			{
-				title: "Help Center",
-				description: "Get all the answers you need right here",
-				icon: Book,
-				url: "/help",
-			},
-			{
-				title: "Contact Support",
-				description: "Get in touch with our support team",
-				icon: Zap,
-				url: "/contact",
-			},
-			{
-				title: "Community Forums",
-				description: "Connect with other users and share experiences",
-				icon: Trees,
-				url: "/community",
-			},
-		],
+		image: "https://images.unsplash.com/photo-1599658880436-c61792e70672",
+		title: "E-commerce",
 	},
 	{
-		title: "Company",
-		url: "#",
-		items: [
-			{
-				title: "About Us",
-				description: "Learn more about our mission and values",
-				icon: Sunset,
-				url: "/about",
-			},
-			{
-				title: "Careers",
-				description: "Join our team and make an impact",
-				icon: Zap,
-				url: "/careers",
-			},
-			{
-				title: "Press",
-				description: "Latest news and media coverage",
-				icon: Book,
-				url: "/press",
-			},
-		],
+		image: "https://images.unsplash.com/photo-1613909207039-6b173b755cc1",
+		title: "Freelancing",
 	},
 	{
-		title: "Programs",
-		url: "#",
-		items: [
-			{
-				title: "Referral Program",
-				description: "Earn rewards by referring others",
-				icon: Zap,
-				url: "/referral",
-			},
-			{
-				title: "Partner Program",
-				description: "Become a partner and grow with us",
-				icon: Trees,
-				url: "/partners",
-			},
-			{
-				title: "Enterprise Solutions",
-				description: "Custom solutions for large organizations",
-				icon: Book,
-				url: "/enterprise",
-			},
-		],
+		image: "https://images.unsplash.com/photo-1691057185806-ea8b5b9a4506",
+		title: "Home Cleaning",
 	},
 	{
-		title: "Legal",
-		url: "#",
-		items: [
-			{
-				title: "Terms of Service",
-				description: "Our terms and conditions",
-				icon: Book,
-				url: "/terms",
-			},
-			{
-				title: "Privacy Policy",
-				description: "How we handle your data",
-				icon: Sunset,
-				url: "/privacy",
-			},
-			{
-				title: "Cookie Policy",
-				description: "Our use of cookies",
-				icon: Book,
-				url: "/cookies",
-			},
-		],
+		image: "https://images.unsplash.com/photo-1694715669993-ea0022b470f7",
+		title: "Pickup and Delivery",
 	},
 	{
-		title: "Blog",
-		url: "/blog",
+		image: "https://images.unsplash.com/photo-1553531889-56cc480ac5cb",
+		title: "Grocery Shopping",
 	},
-];
-export const mobileExtraLinks = [
-	{ name: "Press", url: "#" },
-	{ name: "Contact", url: "#" },
-	{ name: "Imprint", url: "#" },
-	{ name: "Sitemap", url: "#" },
-];
-
-export const options = [
-	"Business",
-	"Content writing",
-	"Logistics",
-	"Personal",
-	"E-commerce",
-	"Freelancing",
-	"Groceries",
-	"Business",
-	"Travel",
-	"Finance",
-	"Real Estate",
+	{
+		image: "https://images.unsplash.com/photo-1505798577917-a65157d3320a",
+		title: "Handyman Services",
+	},
+	{
+		image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173",
+		title: "Writing",
+	},
+	{
+		image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf",
+		title: "Business",
+	},
+	{
+		image: "https://images.unsplash.com/photo-1582902281043-69c645f40cd5",
+		title: "Delivery",
+	},
+	{
+		image: "https://images.unsplash.com/photo-1581578017306-7334b15283df",
+		title: "Gardening",
+	},
+	{
+		image: "https://images.unsplash.com/photo-1650551182991-b07558247564",
+		title: "Plumbing",
+	},
+	{
+		image: "https://images.unsplash.com/photo-1580709839515-54b8991e2813",
+		title: "Moving",
+	},
 ];
 
 export const features: Feature[] = [
 	{
 		Icon: Sprout,
-		title: "Outsource with Gogenie",
-		text: "At Gogenie, we are passionate about connecting job seekers with meaningful opportunities. Whether you are experienced or just starting out, we help you stand out.",
+		title: "Outsource with GoGenie",
+		text: "At GoGenie, we are passionate about connecting job seekers with meaningful opportunities. Whether you are experienced or just starting out, we help you stand out.",
 	},
 	{
 		Icon: Handshake,
-		title: "Partner with Gogenie",
-		text: "Are you a freelancer, vendor or service provider looking to expand your customer base? Partner with Gogenie to connect with thousands of customers who need your services.",
+		title: "Partner with GoGenie",
+		text: "Are you a freelancer, vendor or service provider looking to expand your customer base? Partner with GoGenie to connect with thousands of customers who need your services.",
 	},
 	{
 		Icon: PiggyBank,
-		title: "Earn with Gogenie",
-		text: "Become a Gogenie Affiliate and start earning today. By referring others to the Gogenie platform for their tasks, you earn commissions.",
-	},
-];
-
-export const footerLinks: FooterLink[] = [
-	{
-		title: "Product",
-		links: [
-			{
-				url: "",
-				link: "About",
-			},
-			{
-				url: "",
-				link: "Features",
-			},
-			{
-				url: "",
-				link: "Integrations",
-			},
-			{
-				url: "",
-				link: "FAQs",
-			},
-		],
-	},
-	{
-		title: "Company",
-		links: [
-			{
-				url: "",
-				link: "Our Story",
-			},
-			{
-				url: "",
-				link: "Team",
-			},
-			{
-				url: "",
-				link: "Press",
-			},
-			{
-				url: "",
-				link: "Contact Us",
-			},
-		],
-	},
-	{
-		title: "Resources",
-		links: [
-			{
-				url: "/blog",
-				link: "Blog",
-			},
-			{
-				url: "",
-				link: "Webinars",
-			},
-			{
-				url: "",
-				link: "Case Studies",
-			},
-			{
-				url: "",
-				link: "Help Center",
-			},
-		],
-	},
-	{
-		title: "Legal",
-		links: [
-			{
-				url: "",
-				link: "Terms of Service",
-			},
-			{
-				url: "",
-				link: "Privacy Policy",
-			},
-			{
-				url: "",
-				link: "Cookie Policy",
-			},
-			{
-				url: "",
-				link: "Refund Policy",
-			},
-		],
+		title: "Earn with GoGenie",
+		text: "Become a GoGenie Affiliate and start earning today. By referring others to the GoGenie platform for their tasks, you earn commissions.",
 	},
 ];

@@ -10,10 +10,10 @@ export function FaqAccordion() {
 		<Accordion type="single" collapsible className="w-full max-w-2xl">
 			<AccordionItem value="item-1">
 				<AccordionTrigger className="text-lg font-semibold">
-					What is Gogenie?
+					What is GoGenie?
 				</AccordionTrigger>
 				<AccordionContent>
-					Gogenie is designed to help you manage your tasks efficiently and
+					GoGenie is designed to help you manage your tasks efficiently and
 					effectively, allowing you to focus on what matters most.
 				</AccordionContent>
 			</AccordionItem>
@@ -51,7 +51,7 @@ export function FaqAccordion() {
 				</AccordionTrigger>
 				<AccordionContent>
 					Our referral program allows you to earn rewards by inviting friends to
-					join Gogenie. For every successful referral, you and your friend will
+					join GoGenie. For every successful referral, you and your friend will
 					earn a discount on your next service.
 				</AccordionContent>
 			</AccordionItem>
