@@ -1,22 +1,22 @@
-import { createCookieSessionStorage } from "react-router";
-import { createThemeSessionResolver } from "remix-themes";
+// import { createCookieSessionStorage } from "react-router";
+// import { createThemeSessionResolver } from "remix-themes";
 
-// You can default to 'development' if process.env.NODE_ENV is not set
-const isProduction = import.meta.env.NODE_ENV === "production";
+// // You can default to 'development' if process.env.NODE_ENV is not set
+// const isProduction = import.meta.env.NODE_ENV === "production";
 
-const sessionStorage = createCookieSessionStorage({
-	cookie: {
-		name: "theme",
-		path: "/",
-		httpOnly: true,
-		sameSite: "lax",
-		secrets: ["s3cr3t"],
-		// Set domain and secure only if in production
-		...(isProduction
-			? //TODO: set production url
-				{ domain: "gogenie.co", secure: true }
-			: {}),
-	},
-});
+// const sessionStorage = createCookieSessionStorage({
+// 	cookie: {
+// 		name: "theme",
+// 		path: "/",
+// 		httpOnly: true,
+// 		sameSite: "lax",
+// 		secrets: ["s3cr3t"],
+// 		// Set domain and secure only if in production
+// 		...(isProduction
+// 			? //TODO: set production url
+// 				{ domain: "gogenie.co", secure: true }
+// 			: {}),
+// 	},
+// });
 
-export const themeSessionResolver = createThemeSessionResolver(sessionStorage);
+// export const themeSessionResolver = createThemeSessionResolver(sessionStorage);

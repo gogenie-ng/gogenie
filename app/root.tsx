@@ -5,45 +5,28 @@ import {
 	Scripts,
 	ScrollRestoration,
 	isRouteErrorResponse,
-	useLoaderData,
 } from "react-router";
 import type { Route } from "./+types/root";
 import { Toaster } from "./components/ui/sonner";
 import "./app.css";
-import clsx from "clsx";
-import {
-	PreventFlashOnWrongTheme,
-	ThemeProvider,
-	useTheme,
-} from "remix-themes";
-import { themeSessionResolver } from "./sessions.server";
+// import { themeSessionResolver } from "./sessions.server";
 
-export async function loader({ request }: Route.LoaderArgs) {
-	const { getTheme } = await themeSessionResolver(request);
-	return {
-		theme: getTheme(),
-	};
-}
+// export async function loader({ request }: Route.LoaderArgs) {
+// 	const { getTheme } = await themeSessionResolver(request);
+// 	return {
+// 		theme: getTheme(),
+// 	};
+// }
 
-export default function AppWithProviders({ loaderData }: Route.ComponentProps) {
-	const { theme } = loaderData;
+export default function App() {
+	// const data = useLoaderData<typeof loader>();
+	// const [theme] = useTheme();
 	return (
-		<ThemeProvider specifiedTheme={theme} themeAction="/api/set-theme">
-			<App />
-		</ThemeProvider>
-	);
-}
-
-export function App() {
-	const data = useLoaderData<typeof loader>();
-	const [theme] = useTheme();
-	return (
-		<html lang="en" className={clsx(theme)}>
+		<html lang="en">
 			<head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<Meta />
-				<PreventFlashOnWrongTheme ssrTheme={Boolean(data.theme)} />
 				<Links />
 			</head>
 			<body>

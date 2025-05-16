@@ -12,7 +12,7 @@ export const loader = async ({ request }: Route.LoaderArgs) => {
 		{},
 		options,
 	);
-	return { initial, query: POSTS_QUERY, params: {} };
+	return { initial };
 };
 
 export default function Index({ loaderData }: Route.ComponentProps) {
