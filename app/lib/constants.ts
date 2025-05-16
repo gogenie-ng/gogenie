@@ -82,3 +82,10 @@ export const features: Feature[] = [
 		text: "Become a GoGenie Affiliate and start earning today. By referring others to the GoGenie platform for their tasks, you earn commissions.",
 	},
 ];
+
+export const imageUrl = ({
+	source,
+	projectId,
+	dataset,
+}: { source: unknown; projectId: string; dataset: string }) =>
+	`https://cdn.sanity.io/images/${projectId}/${dataset}/${source}?rect=640,0,2592,2592&w=300&h=300&q=80`;

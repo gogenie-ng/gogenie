@@ -1,16 +1,31 @@
+import type { SanityDocument } from "@sanity/client";
 import genie from "assets/images/genie.png";
-import bgImage from "assets/images/image.png";
 import people from "assets/images/people.jpg";
-import { UserCheck, UserPlus2, Users2 } from "lucide-react";
-import { Link, useNavigate } from "react-router";
+import { UserCheck, Users2 } from "lucide-react";
+import { Link } from "react-router";
+import { BlogSection } from "~/components/marketing/blog-section";
 import { FaqAccordion } from "~/components/marketing/faq-accordion";
 import { FeatureCard, ReviewComment } from "~/components/marketing/utilities";
 import { buttonVariants } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";
 import { features, services } from "~/lib/constants";
+import { getClient } from "~/sanity/client";
+import { previewContext } from "~/sanity/preview";
+import { POSTS_QUERY } from "~/sanity/queries";
+import type { Route } from "./+types/_mkt._index";
 
-export default function Index() {
-	const navigate = useNavigate();
+export const loader = async ({ request }: Route.LoaderArgs) => {
+	const { options } = await previewContext(request.headers);
+	const initial = await getClient().fetch<SanityDocument[]>(
+		POSTS_QUERY,
+		{},
+		options,
+	);
+	return { initial };
+};
+
+export default function Index({ loaderData }: Route.ComponentProps) {
+	const { initial } = loaderData;
 	return (
 		<main className="flex flex-col items-center">
 			<section className="pt-12 md:pt-20">
@@ -138,11 +153,6 @@ export default function Index() {
 					</div>
 				</div>
 			</section>
-			<ReviewComment
-				text="GoGenie has been a lifesaver! I no longer have to stress about groceries or finding reliable help for everyday errands. Booking is seamless, and I can finally focus on work without distractions!"
-				author="Ada O."
-				job="Busy Professional"
-			/>
 			<section className="container flex  justify-center px-4 md:px-6 pt-4 md:pt-6">
 				<div className="flex flex-col items-center gap-20">
 					<div className="flex flex-col items-center justify-center gap-4 text-center">
@@ -172,13 +182,7 @@ export default function Index() {
 				author="Tunde A."
 				job="Small Business Owner"
 			/>
-			<section className="container flex justify-center px-4 md:px-6 pt-4 md:pt-6">
-				<img
-					src={bgImage}
-					className="rounded aspect-video py-4 placeholder-primary/45"
-					alt="background"
-				/>
-			</section>
+			<BlogSection posts={initial} />
 			<ReviewComment
 				text="As someone who travels often, GoGenie has been a game-changer. I can book logistics and errands from anywhere, and the service is always reliable. It's like having a personal assistant at my fingertips!"
 				author="Jide K."
