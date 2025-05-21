@@ -41,7 +41,7 @@ export const services = [
 	},
 	{
 		image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173",
-		title: "Writing",
+		title: "Content Writing",
 	},
 	{
 		image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf",
@@ -52,16 +52,16 @@ export const services = [
 		title: "Delivery",
 	},
 	{
-		image: "https://images.unsplash.com/photo-1581578017306-7334b15283df",
-		title: "Gardening",
+		image: "https://images.unsplash.com/photo-1473625247510-8ceb1760943f",
+		title: "Travel",
 	},
 	{
-		image: "https://images.unsplash.com/photo-1650551182991-b07558247564",
-		title: "Plumbing",
+		image: "https://images.unsplash.com/photo-1512699355324-f07e3106dae5",
+		title: "Real estate",
 	},
 	{
 		image: "https://images.unsplash.com/photo-1580709839515-54b8991e2813",
-		title: "Moving",
+		title: "Moving Help",
 	},
 ];
 
