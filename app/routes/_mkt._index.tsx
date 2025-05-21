@@ -28,7 +28,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 	const { initial } = loaderData;
 	return (
 		<main className="flex flex-col items-center">
-			<section className="pt-12 md:pt-20">
+			<section className="pt-12 md:pt-20 bg-primary/40 w-full">
 				<div className="container flex justify-center px-4 md:px-6">
 					<div className="flex flex-col items-center gap-20 lg:flex-row lg:items-start">
 						<img
