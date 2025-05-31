@@ -18,6 +18,16 @@ import "./app.css";
 // 	};
 // }
 
+export const links: Route.LinksFunction = () => {
+	return [
+		{
+			rel: "icon",
+			href: "/favicon.png",
+			type: "image/png",
+		},
+	];
+};
+
 export default function App() {
 	// const data = useLoaderData<typeof loader>();
 	// const [theme] = useTheme();
