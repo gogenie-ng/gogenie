@@ -7,7 +7,7 @@ import { BlogSection } from "~/components/marketing/blog-section";
 import { FaqAccordion } from "~/components/marketing/faq-accordion";
 import { FeatureCard, ReviewComment } from "~/components/marketing/utilities";
 import { buttonVariants } from "~/components/ui/button";
-import { Card, CardContent } from "~/components/ui/card";
+import { Card } from "~/components/ui/card";
 import { features, services } from "~/lib/constants";
 import { getClient } from "~/sanity/client";
 import { previewContext } from "~/sanity/preview";
@@ -121,7 +121,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 							</Card>
 						))}
 					</div>
-					<div className="grid md:hidden grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
+					<div className="grid md:hidden grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
 						{services.slice(0, 8).map((s) => (
 							<Card
 								key={s.title}
@@ -138,32 +138,18 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 								<p className="place-self-center-safe">{s.title}</p>
 							</Card>
 						))}
-						{services.length > 8 && (
-							<Card className="relative flex flex-col items-center justify-center">
-								<CardContent className="p-6 text-center">
-									<p className="text-lg font-medium">
-										+{services.length - 8} more services
-									</p>
-									<p className="text-sm text-muted-foreground">
-										Click to view all
-									</p>
-								</CardContent>
-							</Card>
-						)}
 					</div>
 				</div>
 			</section>
+			<ReviewComment />
 			<section className="container flex  justify-center px-4 md:px-6 pt-4 md:pt-6">
 				<div className="flex flex-col items-center gap-20">
 					<div className="flex flex-col items-center justify-center gap-4 text-center">
 						<h2 className="text-4xl">
-							Simple, <span className="text-primary">Reliable</span> and Fast
+							Smart Solutions,{" "}
+							<span className="text-primary">Fast Results!</span>
 						</h2>
-						<p className="max-w-sm">
-							From posting your task to getting it done, it's a breeze. Describe
-							your need, choose from our verified professionals. Relax as we
-							take care of the rest.
-						</p>
+						<p className="max-w-sm">Partner with GoGenie, get more customers</p>
 					</div>
 					<div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center md:justify-start gap-4 w-full max-w-full overflow-x-hidden">
 						{features.map((f) => (
@@ -177,17 +163,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					</div>
 				</div>
 			</section>
-			<ReviewComment
-				text="I needed urgent logistics support for my business, and GoGenie delivered! The process was quick, and the service was top-notch. I highly recommend them for anyone looking for reliable help."
-				author="Tunde A."
-				job="Small Business Owner"
-			/>
 			<BlogSection posts={initial} />
-			<ReviewComment
-				text="As someone who travels often, GoGenie has been a game-changer. I can book logistics and errands from anywhere, and the service is always reliable. It's like having a personal assistant at my fingertips!"
-				author="Jide K."
-				job="Frequent Traveler"
-			/>
 			<section className="container flex justify-center px-4 md:px-6 pt-4 md:pt-6">
 				<div className="flex flex-col items-center gap-10 w-full">
 					<div className="flex flex-col items-center justify-center gap-4 text-center">
@@ -202,11 +178,6 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 					<FaqAccordion />
 				</div>
 			</section>
-			<ReviewComment
-				text="Managing a home and kids can be overwhelming. But with GoGenie, I get trusted help whenever I need it. From household tasks to last-minute errands, they've got me covered!"
-				author="Chinenye M."
-				job="Full-time Mom"
-			/>
 			<section className="container flex justify-center px-4 md:px-6 pt-4 md:pt-6">
 				<div className="flex flex-col items-center gap-20 lg:flex-row lg:items-start">
 					<div className="max-w-[25rem] mt-10">
