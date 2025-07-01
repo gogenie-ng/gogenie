@@ -13,8 +13,10 @@ export function FaqAccordion() {
 					What is GoGenie?
 				</AccordionTrigger>
 				<AccordionContent>
-					GoGenie is designed to help you manage your tasks efficiently and
-					effectively, allowing you to focus on what matters most.
+					GoGenie is an outsourcing and support platform that grants your
+					everyday wishes! helping individuals and businesses get things done
+					fast and reliably. From running errands to hiring staffs to finding
+					trusted vendors, GoGenie connects you to verified solutions instantly.
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value="item-2">
@@ -22,46 +24,151 @@ export function FaqAccordion() {
 					How does the service work?
 				</AccordionTrigger>
 				<AccordionContent>
-					The service connects you with trusted professionals who can assist you
-					with various tasks, ensuring quality and reliability.
+					<ol>
+						<li className="flex flex-col p-2">
+							<p>
+								Tell us what you need: Submit a request on our website or
+								message us on WhatsApp, it could be anything:
+							</p>
+							<p>“I need someone to pick up clothes from my tailor”</p>
+							<p>“Help me find a plumber in Abuja”</p>
+							<p>“I want to hire a part-time office assistant”</p>
+						</li>
+						<li>
+							<p>
+								We find the best match: We source a trusted vendor, errand
+								runner, or job seeker from our verified network.
+							</p>
+						</li>
+						<li>
+							<p>
+								You confirm and pay: Once you approve the offer, you make
+								payment securely
+							</p>
+						</li>
+						<li>
+							<p>
+								We get it done: Your task is handled professionally, and we keep
+								you updated every step of the way
+							</p>
+						</li>
+					</ol>
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value="item-3">
 				<AccordionTrigger className="text-lg font-semibold">
-					Is my data secure with this service?
+					How do I get hired through GoGenie Jobs
 				</AccordionTrigger>
 				<AccordionContent>
-					Yes, we prioritize your privacy and security. All data is encrypted
-					and stored securely, and we adhere to strict data protection
-					regulations.
+					<ol>
+						<li>
+							<p>
+								Fill the job seeker form on the GoGenie Jobs page on our website
+							</p>
+						</li>
+						<li>
+							<p>Get verified by our team</p>
+						</li>
+						<li>
+							<p>Your profile gets listed</p>
+						</li>
+						<li>
+							<p>
+								We connect you to verified employers looking for your skills
+							</p>
+						</li>
+					</ol>
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value="item-4">
 				<AccordionTrigger className="text-lg font-semibold">
-					How can I get support if I have issues?
+					Can I apply even if I don't have experience?
 				</AccordionTrigger>
 				<AccordionContent>
-					You can reach out to our support team via email or through the help
-					section on our website. We are here to assist you 24/7.
+					Absolutely. We work with employers who hire entry-level, NYSC, and
+					junior roles as well as experienced professionals.
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value="item-5">
 				<AccordionTrigger className="text-lg font-semibold">
-					How does the referral program work?
+					How can I hire through GoGenie?
 				</AccordionTrigger>
 				<AccordionContent>
-					Our referral program allows you to earn rewards by inviting friends to
-					join GoGenie. For every successful referral, you and your friend will
-					earn a discount on your next service.
+					You can:
+					<ul>
+						<li>
+							<p>Post a job directly via our form</p>
+						</li>
+						<li>
+							<p>Hire from our verified job seeker pool</p>
+						</li>
+						<li>
+							<p>
+								{" "}
+								Or request full hiring support (we shortlist and interview for
+								you)
+							</p>
+						</li>
+						<li>
+							<p>You can contact us with your unique needs</p>
+						</li>
+					</ul>
 				</AccordionContent>
 			</AccordionItem>
 			<AccordionItem value="item-6">
 				<AccordionTrigger className="text-lg font-semibold">
-					Are there any hidden fees?
+					How does the GoGenie referral program work?
 				</AccordionTrigger>
 				<AccordionContent>
-					No, we believe in transparency. All fees are clearly outlined during
-					the signup process, and there are no hidden charges.
+					You earn money when you refer someone who becomes a client, job
+					seeker, or employer:
+					<ul>
+						<li>
+							<p>Share your referral link or ID</p>
+						</li>
+						<li>
+							<p>
+								They sign up using your referral link or enter your referral ID
+								when signing up, filling our form or contacting us
+							</p>
+						</li>
+						<li>
+							<p>You get paid after they book a task</p>
+						</li>
+					</ul>
+				</AccordionContent>
+			</AccordionItem>
+			<AccordionItem value="item-7">
+				<AccordionTrigger className="text-lg font-semibold">
+					Who can become a GoGenie affiliate?
+				</AccordionTrigger>
+				<AccordionContent>
+					Anyone! If you have a network, an audience, or just want to earn extra
+					income, you can become a GoGenie affiliate and start earning today.
+					Simply sign up and get in touch with our team — we&apos;ll guide you
+					through the quick setup process.
+				</AccordionContent>
+			</AccordionItem>
+			<AccordionItem value="item-8">
+				<AccordionTrigger className="text-lg font-semibold">
+					How can I partner with GoGenie as a vendor or service provider?
+				</AccordionTrigger>
+				<AccordionContent>
+					It&apos;s easy. Just fill out the service provider{" "}
+					<a href="https://app.gogenie.co">form</a> and submit your details.
+					Once you&apos;re vetted and verified by our team, you can start
+					receiving tasks and orders through the platform.
+				</AccordionContent>
+			</AccordionItem>
+			<AccordionItem value="item-9">
+				<AccordionTrigger className="text-lg font-semibold">
+					Can I get anything done with GoGenie?
+				</AccordionTrigger>
+				<AccordionContent>
+					Absolutely. GoGenie helps you outsource almost anything from errands
+					and business support to hiring skilled professionals. There&apos;s
+					little to nothing we can&apos;t handle. Reach out now and let&apos;s
+					discuss your specific need.
 				</AccordionContent>
 			</AccordionItem>
 		</Accordion>

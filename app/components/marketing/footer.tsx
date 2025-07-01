@@ -12,7 +12,7 @@ export function Footer() {
 					<Link to={"/"}>Services</Link>
 					<Link to={"/"}>Become a Provider</Link>
 					<Link to={"/"}>Blog</Link>
-					<Link to={"/"}>Contact Us</Link>
+					<Link to={"/contact-us"}>Contact Us</Link>
 				</div>
 				<div className="flex flex-col items-start">
 					<h3 className="text-2xl font-medium my-8">Company</h3>
