@@ -53,7 +53,7 @@ export default function Index({ loaderData }: Route.ComponentProps) {
 								</Link>
 								<Link
 									className={buttonVariants({ variant: "outline", size: "lg" })}
-									to={"https://app.gogenie.co"}
+									to={"/partner"}
 								>
 									Become a service provider
 								</Link>

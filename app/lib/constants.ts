@@ -88,7 +88,11 @@ export const imageUrl = ({
 	source,
 	projectId,
 	dataset,
-}: { source: unknown; projectId: string; dataset: string }) =>
+}: {
+	source: unknown;
+	projectId: string;
+	dataset: string;
+}) =>
 	`https://cdn.sanity.io/images/${projectId}/${dataset}/${source}?rect=640,0,2592,2592&w=300&h=300&q=80`;
 
 export const reviews: {

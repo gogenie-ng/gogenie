@@ -6,9 +6,9 @@ import {
 	Html,
 	Img,
 	Preview,
+	render,
 	Section,
 	Text,
-	render,
 } from "@react-email/components";
 
 const baseUrl = process.env.VERCEL_URL

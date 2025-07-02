@@ -1,9 +1,9 @@
-import type { TRPCRouterRecord } from "@trpc/server";
-import { publicProcedure } from "../utils";
-import { Resend } from "resend";
 import { env } from "cloudflare:workers";
+import type { TRPCRouterRecord } from "@trpc/server";
+import { Resend } from "resend";
 import { contactFormSchema } from "~/lib/constants";
 import { userConfirmBody } from "~/mailer/emails/user-confirm";
+import { publicProcedure } from "../utils";
 
 const resend = new Resend(env.RESEND_API_KEY);
 
